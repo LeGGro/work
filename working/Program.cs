@@ -7,7 +7,7 @@ namespace working
         static void Main(string[] args)
         {
             
-            ght
+            
         }
     }
 }
