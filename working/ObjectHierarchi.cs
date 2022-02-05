@@ -4,10 +4,10 @@ using System.Text;
 
 namespace working
 {
-    class ObjectHierarchi<T>
+    class ObjectHierarchi
     {
-        public List<GameObject<T>> allObjects;
-        public void Add(GameObject<T> obj)
+        public List<GameObject> allObjects = new List<GameObject>();
+        public void Add(GameObject obj)
         {
             allObjects.Add(obj);
         }

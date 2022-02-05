@@ -4,14 +4,18 @@ using System.Text;
 
 namespace working
 {
-    class MapData<T> where T : notnull
+    class MapData
     {
-        private readonly int width;
-        private readonly int height;
-        public T[,] Map;
-        public MapData(int Width, int Height, T signToFill)
+        private int width;
+        private int height;
+        public char[,] Map;
+        public char signToFill;
+        public MapData()
+        { }
+        public MapData(int Width, int Height, char signTo)
         {
-            Map = new T[Height,Width];
+            signToFill = signTo;
+            Map = new char[Height,Width];
             height = Height;
             width = Width;
             for (int y = 0; y < Height; y++)
@@ -26,8 +30,12 @@ namespace working
         /// <summary>
         /// Shows the map as a table of values. Console output. Put any int in Arguments to extend the info.
         /// </summary>
-        public void ShowMap()
+        public void ShowMap(ObjectHierarchi objects)
         {
+            for (int y = 0; y < objects.allObjects.Count; y++)
+            {
+                Map[objects.allObjects[y].position2d.x, objects.allObjects[y].position2d.y] = objects.allObjects[y].pointer;
+            }
             for (int y = 0; y < height; y++)
             {
                 for (int x = 0; x < width; x++)
@@ -36,12 +44,17 @@ namespace working
                 }
                 Console.WriteLine();
             }
+            for (int y = 0; y < objects.allObjects.Count; y++)
+            {
+                Map[objects.allObjects[y].position2d.x, objects.allObjects[y].position2d.y] = signToFill;
+            }
         }
         /// <summary>
         /// Shows the map as a table of values, with numered strokes. Console output.
         /// </summary>
         public void ShowMap(int d)
-        {
+        { 
+            //: TODO fix the showing. necessery to show with objects
             Console.WriteLine();
             if (height > 10)
             {

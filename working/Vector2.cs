@@ -4,7 +4,7 @@ using System.Text;
 
 namespace working
 {
-    class Vector2<T>
+    class Vector2
     {
         public int x;
         public int y;
