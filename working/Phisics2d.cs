@@ -4,7 +4,7 @@ using System.Text;
 
 namespace working
 {
-    class Phisics2d 
+    class Phisics2d
     {
         public GameObject parent;
         public DateTime currTime = new DateTime();
